@@ -4,6 +4,7 @@
     "codelyzer"
   ],
   "rules": {
+    "no-trailing-whitespace": false,
     "align": {
       "options": [
         "parameters",

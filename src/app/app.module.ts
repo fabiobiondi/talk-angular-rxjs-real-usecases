@@ -1,18 +1,41 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {AdminComponent} from './features/admin/admin.component';
+import {LoginComponent} from './features/login/login.component';
+import {HomeComponent} from './features/home/home.component';
+import {IfloggedDirective} from './core/auth/iflogged.directive';
+
+import {AuthGuard} from './core/auth/auth.guard';
+import {AuthInteceptor} from './core/auth/auth.interceptor';
+
+const appRoutes: Routes = [
+  { path: 'admin', component: AdminComponent,  canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent },
+  { path: '', component: LoginComponent },
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminComponent,
+    LoginComponent,
+    HomeComponent,
+    IfloggedDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInteceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
