@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {AdminComponent} from './features/admin/admin.component';
@@ -25,12 +25,13 @@ const appRoutes: Routes = [
     AdminComponent,
     LoginComponent,
     HomeComponent,
-    IfloggedDirective
+    IfloggedDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

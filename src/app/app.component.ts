@@ -7,36 +7,30 @@ import { AuthService } from './core/auth/auth.service';
   selector: 'app-root',
   template: `
     <button
-      routerLink='/admin'
-      routerLinkActive='active'
-      *ngIf='(authService.isLogged$ | async)'
-    >
-      Admin (Protected)
-    </button>
+      routerLink="/admin"
+      routerLinkActive="active"
+      *ngIf="(authService.isLogged$ | async)"
+    > Admin (Protected) </button>
 
-    <button routerLink='/home' routerLinkActive='active'>HOME</button>
+    <button routerLink="/home" routerLinkActive="active">HOME</button>
 
+    <!--Login Button-->
     <button
-      routerLink='/'
-      *ngIf='!(authService.isLogged$ | async)'
-      [routerLinkActiveOptions]='{ exact: true }'
-      routerLinkActive='active'
-    >
-      Login
-    </button>
+      routerLink="/"
+      *ngIf="(authService.isLogged$ | async) === false"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="active"
+    > Login </button>
 
+    <!--Logout: hidden  by custom directive -->
     <button (click)='logout()' *appIfLogged>LOGOUT</button>
 
     <hr />
     <router-outlet></router-outlet>
   `,
-  styles: [
-    `
-      .active {
-        background: orange;
-      }
-    `
-  ]
+  styles: [`
+      .active { background: orange; }
+    `]
 })
 export class AppComponent {
   constructor(private router: Router, public authService: AuthService) {
