@@ -1,12 +1,8 @@
 # RxJS Examples for Angular
 
-- Login, Guards & Interceptors with BehaviorSubject
-  
-- nested http
-- v pipe async
-- V http multiple simultanee
-- v form async validator
-- subscribe components Output
+In this repository you will find some RxJS examples to use in Angular
+
+> This is part of my talk "RxJS: real world scenarios"
 
 | File      | Goal  | RxJS topic
 | ----------- | ----------- | ----------- |
@@ -23,3 +19,6 @@
 | `role-name.pipe.ts` | ASYNC PIPE: <br> async pipe to get the roleName by using the roleId |  `timer` <br> `switchMap` <br> `map` |
 | `meteo.component.ts`   | ROUTED COMPONENT: <br> How to use RxJS operators in Reactive Forms| `filter` <br> `debounceTime` <br> `distinctUntilChanged` <br> `switchMap` <br> `map` <br> `catchError` <br> | 
 
+## Note:
+
+The application is not organized in `ngModule`s in order to keep it as simple as possibile and to focus on RxJS
