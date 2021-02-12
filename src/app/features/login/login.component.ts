@@ -27,7 +27,7 @@ with Reactive Forms
                 class="fa"
                 [ngClass]="{
                   'fa-check': form.get('username').valid,
-                  ' fa-exclamation-circle': form.get('username').invalid
+                  'fa-exclamation-circle': form.get('username').invalid
                 }"
               ></i>
             </div>
