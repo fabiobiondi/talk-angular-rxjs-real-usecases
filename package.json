@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "server": "json-server --watch server/db.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "server": "json-server --watch server/db.json"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
