@@ -2,15 +2,15 @@
 
 This repository contains the source code of my live coding session "RxJS: real world scenarios for Angular".
 
-#### MY GOAL
+## What I did
 
-Create some real-world examples in which I use an idiomatic approach in RxJS for managing common scenarios in Angular applications.
+I have written some real-world examples in which I use an idiomatic approach in RxJS for managing common scenarios in Angular applications.
 
 > This Angular project is not organized in `ngModule`s in order to keep it as simple as possibile and to focus on RxJS
 
 ---
 
-INSTALLATION
+## Installation
 
 1. Clone this repository
 
@@ -34,7 +34,7 @@ npm run server
 
 ---
 
-# EXAMPLES
+## Examples
 
 Following a list of examples you can find in the repository:
 
