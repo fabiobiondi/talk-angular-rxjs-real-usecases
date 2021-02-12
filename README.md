@@ -10,16 +10,16 @@
 
 | File      | Goal  | RxJS topic
 | ----------- | ----------- | ----------- |
-| `users.component` | Multiple HTTP requests  |  `forkjoin`, `map` |
-| `users-details.component` |  Handle Observable sequence |  `switchmap`, `map`, `activatedRoute.params` |
-| `user.validators.service.ts`  | RxJS Async Validator for Reactive Forms<br> (used in `login.component.ts`)   |`timer`, `switchmap`       | 
-| `auth.service.ts`   | Use Subject to store and share data |   `BehaviorSubject`, `map`  
-| `auth.interceptor.ts`   | Send token to HTTP request |   `withLatestFrom`, `mergeMap`, `first`, `iif`, `delay`, `catchError`, `of`, `throwError`  
+| `users.component` | ROUTED COMPONENT: <br>Multiple HTTP requests  |  `forkjoin` <br> `map` |
+| `users-details.component` | ROUTED COMPONENT: <br> Handle Observable sequence to get user details by router params|  `switchmap` <br> `map` <br> `activatedRoute.params` |
+| `login.component` | ROUTED COMPONENT: <br> Example of Reactive forms with async validator |  |
+| `user.validators.service.ts`  | ASYNC VALIDATOR SERVICE: <br>Async Validator<br> (used in `login.component.ts`)   |`timer` <br> `switchmap`       | 
+| `auth.service.ts`   | SERVICE: <br>Simulate JWT (login / logout / role / token) by using RxJS Subject to store and share data |   `BehaviorSubject` <br> `map`  
+| `auth.interceptor.ts`   | Send token to HTTP request |   `withLatestFrom` <br> `mergeMap` <br> `first` <br> `iif` <br> `delay` <br> `catchError` <br> `of` <br> `throwError`  
 | `auth.guard.ts` |  Guard Example to protect routes <br> (used in `app-routing.module.ts`)         | Return `Observable`s in router guards| 
-| `if-logged.directive.ts`   | Directive to render DOM when user is logged <br> (used in `navbar.component.ts`)| `distinctUntilChanged`, `takeUntil`, `Subject`| 
-| `if-roleId.directive.ts`   | Directive to render DOM by roleId <br> (used in `navbar.component.ts`) | `distinctUntilChanged`, `takeUntil`, `Subject`| 
+| `if-logged.directive.ts`   | Directive to render DOM when user is logged <br> (used in `navbar.component.ts`)| `distinctUntilChanged` <br> `takeUntil` <br> `Subject`| 
+| `if-roleId.directive.ts`   | Directive to render DOM by roleId <br> (used in `navbar.component.ts`) | `distinctUntilChanged` <br> `takeUntil` <br> `Subject`| 
+| `demo-async-pipe.component.ts` | ROUTED COMPONENT: <br> How to use async pipe to get the role name by using the roleId |  |
+| `role-name.pipe.ts` | ASYNC PIPE: <br> async pipe to get the roleName by using the roleId |  `timer` <br> `switchMap` <br> `map` |
+| `meteo.component.ts`   | ROUTED COMPONENT: <br> How to use RxJS operators in Reactive Forms| `filter` <br> `debounceTime` <br> `distinctUntilChanged` <br> `switchMap` <br> `map` <br> `catchError` <br> | 
 
-| x | x | x |
-| x | x | x |
-| x | x | x |
-| x | x | x |
