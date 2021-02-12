@@ -12,4 +12,6 @@
 | ----------- | ----------- |
 | `login.component.ts`      | RxJS Async Validtor for Reactive Forms       |
 | `authentication.service.ts`      | BehaviorSubject and operators|
+| `admin.component`   | Example of protected route (by `AuthGuard`)         |
+| `admin.component`   | Multiple HTTP requests with `forkjoin`         |
 | `auth.guard.ts`   | Guard Example with Observable         |
