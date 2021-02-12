@@ -69,9 +69,7 @@ Following a list of examples you can find in the repository:
 
 ---
 
-## SOCIAL
-
-## SOCIAL
+## SOCIAL PROFILES
 
 * [Twitch Channel](https://www.twitch.tv/fabio_biondi)
 * [YouTube Channel](https://www.youtube.com/c/FabioBiondi/)
@@ -81,8 +79,9 @@ Following a list of examples you can find in the repository:
 * [Twitter](https://twitter.com/biondifabio)
 
 ## COMMUNITIES
+
+* [CodersHub (DISCORD)](https://discord.gg/9WSXYX4Stx)
 * [Angular Developer Italiani (FB)](https://www.facebook.com/groups/angularjs.developer.italiani/)
 * [JavaScript Developer Italiani (FB)]()
 * [React Developer Italiani (FB)]()
 * [Opportunità Developer Italiani (FB)]()
-* [CodersHub (Discord)](https://discord.gg/9WSXYX4Stx)
