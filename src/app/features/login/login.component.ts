@@ -13,7 +13,10 @@ with Reactive Forms
 </pre>
 
     <form [formGroup]="form" class="card" (submit)="login()">
-      <div class="card-header">Sign In</div>
+      <div class="card-header">
+        {{form.get('username').errors?.userNotExists ? 'User does not exist' : 'Sign In'}}
+      </div>
+      
       <div class="card-body">
         <div class="input-group mb-2">
           <div class="input-group-prepend">
