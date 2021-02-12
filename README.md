@@ -8,10 +8,9 @@
 - v form async validator
 - subscribe components Output
 
-| File      | RxJS topic |
-| ----------- | ----------- |
-| `login.component.ts`      | RxJS Async Validtor for Reactive Forms       |
-| `authentication.service.ts`      | BehaviorSubject and operators|
-| `admin.component`   | Example of protected route (by `AuthGuard`)         |
-| `admin.component`   | Multiple HTTP requests with `forkjoin`         |
-| `auth.guard.ts`   | Guard Example with Observable         |
+| File      | RxJS  | Description
+| ----------- | ----------- | ----------- |
+| `login.component.ts`      | `timer`, `switchmap`       | RxJS Async Validtor for Reactive Forms |
+| `authentication.service.ts`      | `BehaviorSubject`, `map` | Use Subject to store and share data | 
+| `auth.guard.ts`   |  Used in `AppRoutingModule` to protect `AdminComponent`| Guard Example with Observable         |
+| `admin.component`   | `forkjoin`         | Multiple HTTP requests  |
