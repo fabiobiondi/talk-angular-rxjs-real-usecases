@@ -1,23 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { catchError, concatMap, debounceTime, distinctUntilChanged, filter, map, mergeAll, mergeMap, switchMap } from 'rxjs/operators';
+import { catchError, debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   template: `
+<pre>
+GOAL: use RxJS operators 
+with Reactive Forms
+</pre>
     
-    <div class="card">
+    <div class="card text-center" >
       <!--Search city input -->
-      <input type="text"placeholder="Search City" [formControl]="cityInput" />
+      <div class="card-header">
+        <input
+          class="form-control"
+          type="text"placeholder="Search City" [formControl]="cityInput" />
+      </div>
 
-      <!--Temp + icon-->
       <div *ngIf="meteo && !meteo.error">
-        <div class="title-bar" >
-          {{meteo.temperature}}° 
-          <img [src]="meteo.icon" alt="icon" />
-        </div>
         
         <!--Map-->
         <img
@@ -25,23 +28,29 @@ import { of } from 'rxjs';
           width="100%" 
           alt="map"
         />
+        
+        <!--Weather Icon-->
+        <div class="title-bar">
+          {{meteo.temperature}}°
+          <img [src]="meteo.icon" alt="icon" />
+        </div>
+        
       </div>
       
       <div *ngIf="meteo?.error">
-        AHia ahiahiai1!
+        No city found
       </div>
 
     </div>
   `,
 })
-export class HomeComponent implements OnInit {
-  meteo: { map?: string, icon?: string, temperature?: string, error: boolean }
+export class MeteoComponent implements OnInit {
+  meteo: { map?: string, icon?: string, temperature?: string, error: boolean };
   cityInput: FormControl = new FormControl();
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // -----a-b---e----4-----7----f--------------->
     this.cityInput.valueChanges
       .pipe(
         filter(text => text.length > 2),
@@ -54,20 +63,20 @@ export class HomeComponent implements OnInit {
                 return {
                   temperature: meteo.main.temp,
                   icon: 'http://openweathermap.org/img/w/' + meteo.weather[0].icon + '.png',
-                  map: 'https://maps.googleapis.com/maps/api/staticmap?center=' + text + '&zoom=5&size=200x100&key=AIzaSyDSBmiSWV4-AfzaTPNSJhu-awtfBNi9o2k',
+                  map: 'https://maps.googleapis.com/maps/api/staticmap?center=' + text + '&zoom=7&size=200x100&key=AIzaSyDSBmiSWV4-AfzaTPNSJhu-awtfBNi9o2k',
                   error: false
                 };
               }),
-              catchError(error => of({ error: true}))
+              catchError(() => of({ error: true}))
             )
         ),
       )
       .subscribe(result => {
-        console.log(result)
+        console.log(result);
         this.meteo = result;
       });
 
-    this.cityInput.setValue('milano')
+    this.cityInput.setValue('milan');
   }
 
 }

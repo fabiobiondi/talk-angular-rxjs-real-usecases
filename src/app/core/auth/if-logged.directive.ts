@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 @Directive({
   selector: '[appIfLogged]'
 })
-export class IfloggedDirective implements OnInit, OnDestroy {
+export class IfLoggedDirective implements OnInit, OnDestroy {
   private destroy$ = new Subject();
 
   constructor(

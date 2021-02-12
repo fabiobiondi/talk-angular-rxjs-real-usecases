@@ -1,3 +1,6 @@
-p {
-  font-family: Lato;
+html, body {
+  font-family: 'Nunito', sans-serif;
 }
+
+.page {width: 300px; margin: 0 auto; }
+.card {width: 300px; margin: 0 auto; }

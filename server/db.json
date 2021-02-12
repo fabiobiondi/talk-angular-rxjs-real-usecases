@@ -1,0 +1,40 @@
+{
+  "login": {
+    "token": "fake.token.abc123",
+    "role": "admin",
+    "displayName": "Fabio Biondi"
+  },
+  "validateUser": {
+    "access": "ok"
+  },
+  "users": [
+    {
+      "id": 1,
+      "name": "Fabio",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a metus nisi. Maecenas diam nisl, tempor in commodo quis, dictum vel ligula. Suspendisse quis magna mattis, tempor arcu eget, tincidunt eros.",
+      "roleId": 1001
+    },
+    {
+      "id": 2,
+      "name": "Silvia",
+      "description": "Proin vulputate et arcu sed pharetra. Proin blandit pharetra mollis. Proin condimentum quam eros, nec ultricies quam ullamcorper id. Nullam dapibus nunc vitae urna vulputate, quis ullamcorper dolor laoreet. ",
+      "roleId": 1002
+    },
+    {
+      "id": 3,
+      "name": "Lorenzo",
+      "description": "Maecenas egestas, ligula quis ultricies imperdiet, nulla sem interdum magna, eget faucibus sem elit ut dolor. Donec a diam lobortis, volutpat orci id, rhoncus risus. ",
+      "roleId": 1002
+    }
+  ],
+  "roles": [
+    {
+      "id": 1001,
+      "roleName": "Admin"
+    },
+    {
+      "id": 1002,
+      "roleName": "Editor"
+    }
+  ]
+}
