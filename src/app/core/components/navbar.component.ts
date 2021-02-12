@@ -34,7 +34,7 @@ import { filter, map } from 'rxjs/operators';
         *appIfLogged
         class="btn btn-outline-primary"
         (click)='logout()'
-      >LOGOUT</button>
+      >LOGOUT ({{ authService.displayName$ | async }})</button>
     </div>
   `,
   styles: [`
