@@ -8,7 +8,8 @@
 - v form async validator
 - subscribe components Output
 
-| File      | Description |
+| File      | RxJS topic |
 | ----------- | ----------- |
-| `login.component`      | Title       |
-| `auth.interceptor`   | Example of interceptor         |
+| `login.component.ts`      | RxJS Async Validtor for Reactive Forms       |
+| `authentication.service.ts`      | BehaviorSubject and operators|
+| `auth.guard.ts`   | Guard Example with Observable         |
