@@ -14,6 +14,10 @@ I have written some real-world examples in which I use an idiomatic approach in 
 
 1. Clone this repository
 
+```
+git clone https://github.com/fabiobiondi/talk-angular-rxjs-real-usecases.git
+```
+
 2. Install dependencies
 
 ```
