@@ -8,23 +8,26 @@ Create some real-world examples in which I use an idiomatic approach in RxJS for
 
 > This Angular project is not organized in `ngModule`s in order to keep it as simple as possibile and to focus on RxJS
 
+
 # EXAMPLES
 
 Following a list of examples you can find in the repository:
 
-#### AUTHENTICATION EXAMPLE
+### AUTHENTICATION EXAMPLE
 
 | File      | Goal  | RxJS topic
 | ----------- | ----------- | ----------- |
 | `login.component` | **ROUTED COMPONENT:** <br> Example of Reactive forms with async validator |  |
 | `user.validators.service.ts`  | **ASYNC VALIDATOR SERVICE:** <br> Check if username exists, handle pending and return error if not (used in `login.component.ts`)   |`timer` <br> `switchmap`       | 
 | `auth.service.ts`   | **SERVICE:** <br>Simulate JWT (login / logout / role / token) by using RxJS Subject to store and share data |   `BehaviorSubject` <br> `map`
-| `auth.interceptor.ts`   | **HTTP INTERCEPTOR:** <br>Send token to HTTP request |   `withLatestFrom` <br> `mergeMap` <br> `first` <br> `iif` <br> `delay` <br> `catchError` <br> `of` <br> `throwError`
+| `auth.interceptor.ts`   | **HTTP INTERCEPTOR:** <br>Send token to each HTTP requests and handle errors |   `withLatestFrom` <br> `mergeMap` <br> `first` <br> `iif` <br> `delay` <br> `catchError` <br> `of` <br> `throwError`
 | `auth.guard.ts` |  **ROUTER GUARD:** <br>Guard Example to protect routes <br> (used in `app-routing.module.ts`)         | Return `Observable`s in router guards| 
 | `if-logged.directive.ts`   | **DIRECTIVE:** <br>Directive to render DOM when user is logged <br> (used in `navbar.component.ts`)| `distinctUntilChanged` <br> `takeUntil` <br> `Subject`| 
-| `if-roleId.directive.ts`   | **DIRECTIVE:** <br>Directive to render DOM by roleId <br> (used in `navbar.component.ts`) | `distinctUntilChanged` <br> `takeUntil` <br> `Subject`| 
+| `if-role.directive.ts`   | **DIRECTIVE:** <br>Directive to render DOM by roleId <br> (used in `navbar.component.ts`) | `distinctUntilChanged` <br> `takeUntil` <br> `Subject`| 
 
-#### OTHER EXAMPLES
+---
+
+### OTHER EXAMPLES
 
 | File      | Goal  | RxJS topic
 | ----------- | ----------- | ----------- |
