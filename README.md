@@ -2,17 +2,17 @@
 
 This repository contains the source code of my live coding session "RxJS: real world scenarios".
 
-#### GOAL
+#### MY GOAL
 
-create examples in which I use an idiomatic approach in RxJS for managing common scenarios.
+Create some real-world examples in which I use an idiomatic approach in RxJS for managing common scenarios in Angular applications.
 
-> The application is not organized in `ngModule`s in order to keep it as simple as possibile and to focus on RxJS
+> This Angular project is not organized in `ngModule`s in order to keep it as simple as possibile and to focus on RxJS
 
-#### EXAMPLES
+# EXAMPLES
 
 Following a list of examples you can find in the repository:
 
-### AUTHENTICATION EXAMPLE
+#### AUTHENTICATION EXAMPLE
 
 | File      | Goal  | RxJS topic
 | ----------- | ----------- | ----------- |
@@ -24,7 +24,7 @@ Following a list of examples you can find in the repository:
 | `if-logged.directive.ts`   | **DIRECTIVE:** <br>Directive to render DOM when user is logged <br> (used in `navbar.component.ts`)| `distinctUntilChanged` <br> `takeUntil` <br> `Subject`| 
 | `if-roleId.directive.ts`   | **DIRECTIVE:** <br>Directive to render DOM by roleId <br> (used in `navbar.component.ts`) | `distinctUntilChanged` <br> `takeUntil` <br> `Subject`| 
 
-### OTHER EXAMPLES
+#### OTHER EXAMPLES
 
 | File      | Goal  | RxJS topic
 | ----------- | ----------- | ----------- |
