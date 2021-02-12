@@ -67,3 +67,22 @@ Following a list of examples you can find in the repository:
 | `meteo.component.ts`   | **ROUTED COMPONENT:** <br> How to use RxJS operators in Reactive Forms| `filter` <br> `debounceTime` <br> `distinctUntilChanged` <br> `switchMap` <br> `map` <br> `catchError` <br> | 
 
 
+---
+
+## SOCIAL
+
+## SOCIAL
+
+* [Twitch Channel](https://www.twitch.tv/fabio_biondi)
+* [YouTube Channel](https://www.youtube.com/c/FabioBiondi/)
+* [LinkedIn](https://www.linkedin.com/in/fabiobiondi/)
+* [Facebook Group](https://www.facebook.com/groups/fabiobiondi.training)
+* [Instagram](https://www.instagram.com/biondifabio/)
+* [Twitter](https://twitter.com/biondifabio)
+
+## COMMUNITIES
+* [Angular Developer Italiani (FB)](https://www.facebook.com/groups/angularjs.developer.italiani/)
+* [JavaScript Developer Italiani (FB)]()
+* [React Developer Italiani (FB)]()
+* [Opportunità Developer Italiani (FB)]()
+* [CodersHub (Discord)](https://discord.gg/9WSXYX4Stx)
