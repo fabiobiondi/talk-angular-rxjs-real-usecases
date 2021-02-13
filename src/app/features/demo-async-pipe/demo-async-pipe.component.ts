@@ -13,7 +13,7 @@ by async pipe
 </pre>
 
     <!--user list-->
-    <ng-container *ngIf="users | async as users; else pendingList">
+    <ng-container *ngIf="users$ | async as users; else pendingList">
       <li
         class="list-group-item"
         *ngFor="let user of users; let i = index"
@@ -41,10 +41,10 @@ by async pipe
   `,
 })
 export class DemoAsyncPipeComponent {
-  users: Observable<User[]>;
+  users$: Observable<User[]>;
 
   constructor( private http: HttpClient ) {
-    this.users = this.http.get<User[]>('http://localhost:3000/users');
+    this.users$ = this.http.get<User[]>('http://localhost:3000/users');
   }
 
 }

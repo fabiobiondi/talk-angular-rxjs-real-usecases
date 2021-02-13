@@ -56,7 +56,7 @@ export class AuthService {
 
   get displayName$(): Observable<string> {
     return this.auth$.pipe(
-      map(auth => auth.displayName)
+      map(auth => auth?.displayName)
     );
   }
 }
