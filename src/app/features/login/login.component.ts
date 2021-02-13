@@ -2,19 +2,14 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../core/auth/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserValidatorsService } from '../../shared/forms/user-validator.service';
 
 @Component({
   selector: 'app-login',
   template: `
-<pre>
-Goal: Async validator
-with Reactive Forms
-</pre>
 
     <form [formGroup]="form" class="card" (submit)="login()">
       <div class="card-header">
-        {{form.get('username').errors?.userNotExists ? 'User does not exist' : 'Sign In'}}
+       Sign In
       </div>
       
       <div class="card-body">
@@ -22,9 +17,7 @@ with Reactive Forms
           <div class="input-group-prepend">
             <div class="input-group-text">
               <!--Username validator Pending Icon-->
-              <i
-                *ngIf="form.get('username').pending"
-                class="fa fa-spinner fa-spin fa-fw"></i>
+              <i class="fa fa-spinner fa-spin fa-fw"></i>
               <!--Username valid / invalid icon-->
               <i 
                 class="fa"
@@ -64,12 +57,11 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private userValidators: UserValidatorsService,
     private route: Router,
     private fb: FormBuilder
   ) {
     this.form = fb.group({
-      username: ['Fabio', Validators.required, userValidators.uniqueName()],
+      username: ['Fabio', Validators.required],
       password: ['a12345a6', Validators.required],
     });
   }
