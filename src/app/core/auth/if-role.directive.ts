@@ -1,8 +1,8 @@
-import { Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Subject } from 'rxjs';
-import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
-import { AuthService } from './auth.service';
-import { UserRoles } from './auth';
+import {Directive, Input, OnDestroy, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {MonoTypeOperatorFunction, Observable, Subject} from 'rxjs';
+import {distinctUntilChanged, filter, takeUntil} from 'rxjs/operators';
+import {AuthService} from './auth.service';
+import {UserRoles} from './auth';
 
 @Directive({
   selector: '[appIfRole]'
@@ -15,20 +15,36 @@ export class IfRoleDirective implements OnInit, OnDestroy {
     private template: TemplateRef<any>,
     private view: ViewContainerRef,
     private authService: AuthService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
-    this.authService.role$
+    this.manageValidRole();
+    this.manageInvalidRole();
+  }
+
+  private createAuthObservable(authFilter: MonoTypeOperatorFunction<string>): Observable<string> {
+    return this.authService.role$
       .pipe(
         distinctUntilChanged(),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(role => {
-        if (role === this.appIfRole) {
-          this.view.createEmbeddedView(this.template);
-        } else {
-          this.view.clear();
-        }
+        takeUntil(this.destroy$),
+        authFilter
+      );
+  }
+
+  private manageValidRole(): void {
+    const validRoleFilter: MonoTypeOperatorFunction<string> = filter(role => this.appIfRole === role);
+    this.createAuthObservable(validRoleFilter)
+      .subscribe(() => {
+        this.view.createEmbeddedView(this.template);
+      });
+  }
+
+  private manageInvalidRole(): void {
+    const invalidRoleFilter: MonoTypeOperatorFunction<string> = filter(role => this.appIfRole !== role);
+    this.createAuthObservable(invalidRoleFilter)
+      .subscribe(() => {
+        this.view.clear();
       });
   }
 

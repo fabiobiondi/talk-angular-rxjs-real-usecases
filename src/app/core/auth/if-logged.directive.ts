@@ -1,7 +1,7 @@
-import { Directive, OnDestroy, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Subject } from 'rxjs';
-import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
-import { AuthService } from './auth.service';
+import {Directive, OnDestroy, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {distinctUntilChanged, filter, takeUntil} from 'rxjs/operators';
+import {AuthService} from './auth.service';
 
 @Directive({
   selector: '[appIfLogged]'
@@ -13,21 +13,33 @@ export class IfLoggedDirective implements OnInit, OnDestroy {
     private template: TemplateRef<any>,
     private view: ViewContainerRef,
     private authService: AuthService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
-    this.authService.isLogged$
+    const distinctAuth = this.authService.isLogged$
       .pipe(
         distinctUntilChanged(),
-        takeUntil(this.destroy$)
-      )
-      .subscribe(isLogged => {
-        if (isLogged) {
-          this.view.createEmbeddedView(this.template);
-        } else {
-          this.view.clear();
-        }
-      });
+        takeUntil(this.destroy$),
+      );
+    this.manageLoggedUser(distinctAuth);
+    this.manageUnloggedUser(distinctAuth);
+  }
+
+  private manageUnloggedUser(distinctAuth: Observable<boolean>): void {
+    distinctAuth.pipe(
+      filter(isLogged => !isLogged)
+    ).subscribe(() => {
+      this.view.clear();
+    });
+  }
+
+  private manageLoggedUser(distinctAuth: Observable<boolean>): void {
+    distinctAuth.pipe(
+      filter(isLogged => isLogged)
+    ).subscribe(() => {
+      this.view.createEmbeddedView(this.template);
+    });
   }
 
   ngOnDestroy(): void {
